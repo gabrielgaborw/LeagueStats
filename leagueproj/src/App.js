@@ -12,7 +12,6 @@ function App() {
   const [summData, setSummData] = useState([]);
   const [runeData, setRuneData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const API_KEY = "RGAPI-cb145ca9-104d-47b1-aab9-33f27b9ee96a";
   
   function searchPlayer(event) {
     // APi string setup
