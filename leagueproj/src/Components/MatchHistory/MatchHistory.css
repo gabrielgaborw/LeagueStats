@@ -1,0 +1,8 @@
+.match {
+    display: flex;
+    padding: 5px;
+  }
+  
+.match > div {
+  flex: 1;
+}

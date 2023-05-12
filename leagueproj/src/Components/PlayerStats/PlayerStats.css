@@ -1,0 +1,9 @@
+.items {
+  display: flex;
+  padding: 0;
+}
+
+.items > li {
+  flex: 1;
+  list-style: none;
+}
