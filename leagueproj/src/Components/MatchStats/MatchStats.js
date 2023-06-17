@@ -51,28 +51,31 @@ const MatchStats = ({ selectedPlayer, summData, runeData }) => {
       <div className="match-stats">
         <div className="champ-details">
           {/* CHAMPION ICON */}
-          <div className="champ-icon">
-            <img width="50" height="50" src={`http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/${selectedPlayer.championName}.png`} />
+          <div className="champ-icon-container">
+            <img className="champ-icon" width="80" height="80"
+            src={`http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/${selectedPlayer.championName}.png`} alt="champ-icon" />
           </div>
           <div className="build">
             {/* SUMMONER SPELLS */}
             <ul className="summs">
               <li>
-                <img width="20" height="20"
-                src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/spell/${getSpellIcon(selectedPlayer.summoner1Id)}.png`} />
+                <img className="summ-icon" width="35" height="35"
+                src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/spell/${getSpellIcon(selectedPlayer.summoner1Id)}.png`} alt="summ1" />
               </li>
               <li>
-                <img width="20" height="20"
-                src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/spell/${getSpellIcon(selectedPlayer.summoner2Id)}.png`} />
+                <img className="summ-icon" width="35" height="35"
+                src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/spell/${getSpellIcon(selectedPlayer.summoner2Id)}.png`} alt="summ2" />
               </li>
             </ul>
             {/* RUNES */}
             <ul className="runes">
               <li>
-                <img width="20" height="20" src={`https://ddragon.canisback.com/img/${getPrimaryRune(selectedPlayer.perks.styles)}`} />
+                <img width="35" height="35"
+                src={`https://ddragon.canisback.com/img/${getPrimaryRune(selectedPlayer.perks.styles)}`} alt="keystone" />
               </li>
               <li>
-                <img width="20" height="20" src={`https://ddragon.canisback.com/img/${getSecondaryRune(selectedPlayer.perks.styles)}`} />
+                <img width="35" height="35"
+                src={`https://ddragon.canisback.com/img/${getSecondaryRune(selectedPlayer.perks.styles)}`} alt="rune" />
               </li>
             </ul>
           </div>

@@ -14,12 +14,10 @@ const Score = ({ selectedPlayer }) => {
     <>
       <div className="score">
         <div className="kda">
-          {`${selectedPlayer.kills} / 
-          ${selectedPlayer.deaths} / 
-          ${selectedPlayer.assists}`}
+          {`${selectedPlayer.kills} / `}<p style={{color: "red", display: "inline"}}>{selectedPlayer.deaths}</p>{` / ${selectedPlayer.assists}`}
         </div>
         <div className="kda-ratio">
-          {ratio(selectedPlayer)}
+          {`${ratio(selectedPlayer)}:1 KDA`}
         </div>
       </div>
     </>

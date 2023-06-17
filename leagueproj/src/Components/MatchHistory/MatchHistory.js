@@ -19,11 +19,19 @@ const MatchHistory = ({ matchHistory, playerData, summData, runeData}) => {
   return (
     <>
       {matchHistory.length !== 0 ?
-        <ul className="matchHistory" style={{border: "5px solid red"}}>
+        <ul className="match-history">
           Match History
           {matchHistory.map((gameData, index) => 
-            <li key={index} className="match" style={{border: "5px solid red"}}>
-              <div>Match details</div>
+            <li key={index} className={`match ${findSelectedPlayer(gameData).win ? "win" : "loss"}`}>
+              {/* MATCH RESULT */}
+              <div className="match-result">
+                <p className={`${findSelectedPlayer(gameData).win ? "result-text-win" : "result-text-loss"}`}>
+                  {findSelectedPlayer(gameData).win ? "VICTORY" : "DEFEAT"}
+                </p>
+                <p className="match-length">
+                  {`${Math.floor(gameData.info.gameDuration / 60)}:${gameData.info.gameDuration % 60}`}
+                </p>
+              </div>
               {/* PLAYERS STATS */}
               <PlayerStats selectedPlayer={findSelectedPlayer(gameData)} summData={summData} runeData={runeData} />
               {/* MATCH PARTICIPANTS */}

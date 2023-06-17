@@ -1,3 +1,9 @@
+.match-details {
+  /* border-right: 1px solid rgba(220,220,220, 20%);
+  border-left: 1px solid rgba(220,220,220, 20%); */
+  flex-basis: 650px;
+}
+
 .items {
   display: flex;
   padding: 0;
@@ -6,4 +12,28 @@
 .items > li {
   flex: 1;
   list-style: none;
+}
+
+.item {
+  background-color: rgba(220,220,220, 20%);
+  margin: 5px;
+  border-radius: 3px;
+  height: 30px;
+  width: 30px;
+}
+
+.last-item {
+  background-color: rgba(220,220,220, 20%);
+  margin: 5px;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+.item-img {
+  border-radius: 3px;
+}
+
+.trinket {
+  border-radius: 50%;
 }

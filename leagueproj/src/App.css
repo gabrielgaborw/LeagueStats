@@ -8,10 +8,27 @@
   display: flex;
 }
 
-.container > div {
+.inputs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-input {
+  width: 200px;
+  height: 25px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0%);
+  border: 1px solid gray;
+}
+
+.search-btn {
+}
+
+/* .container > div {
   flex: 1;
 }
 
-.container > ul {
+.container > history {
   flex: 1;
-}
+} */

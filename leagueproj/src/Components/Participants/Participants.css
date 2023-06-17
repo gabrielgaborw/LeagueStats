@@ -1,26 +1,27 @@
 .participants {
   display: flex;
+  position: relative;
+  justify-content: flex-end;
 }
 
 .participants > ul {
-  flex: 1;
+  flex: 0 0 auto;
+  width: 120px;
   padding: 0px;
 }
 
 .blue-team {
   display: flex;
+  margin: 2px;
 }
 
 .blue-team > icon > name {
   flex: 1;
 }
 
-.red-team-list {
-  position: relative;
-}
-
 .red-team {
   display: flex;
+  margin: 2px;
 }
 
 .red-team > icon > name {

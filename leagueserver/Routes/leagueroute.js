@@ -1,9 +1,11 @@
 import express from "express";
 
-import { getPlayerData } from "../Controllers/leaguecontroller.js";
+import { getMatchHistory, getRankedData, getPlayerData } from "../Controllers/leaguecontroller.js";
 
 const router = express.Router();
 
-router.get('/', getPlayerData);
+router.get('/history', getMatchHistory);
+router.get('/ranked', getRankedData);
+router.get('/player', getPlayerData);
 
 export default router;

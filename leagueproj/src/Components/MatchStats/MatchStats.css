@@ -25,6 +25,10 @@
   flex: 1;
 }
 
+.champ-icon {
+  border-radius: 5px;
+}
+
 .build {
   display: flex;
 }
@@ -36,6 +40,10 @@
 .summs {
   list-style: none;
   padding: 3px;
+}
+
+.summ-icon {
+  border-radius: 5px;
 }
 
 .runes {

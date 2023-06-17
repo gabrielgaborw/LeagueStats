@@ -1,8 +1,54 @@
-.match {
-    display: flex;
-    padding: 5px;
-  }
-  
-.match > div {
-  flex: 1;
+.match-history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(36,33,36);
+  width: 1000px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
 }
+
+.match {
+  display: flex;
+  width: 950px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.match-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.win {
+  background-color: rgba(65,105,225, 20%);
+  border-left: 10px solid rgba(0,0,205, 80%);
+}
+
+.loss {
+  background-color: rgba(255,64,64, 20%);
+  border-left: 10px solid rgba(254,39,18, 80%);
+}
+
+.result-text-win {
+  color: rgba(65,105,225);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.result-text-loss {
+  color: rgba(254,39,18);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.match-length {
+  margin: 0;
+}
+  
