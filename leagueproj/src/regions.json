@@ -1,0 +1,116 @@
+{
+    "regions": [
+        {
+            "id": "1",
+            "name": "NA",
+            "description": "North America",
+            "prv": "na1",
+            "rrv": "americas"
+        },
+        {
+            "id": "2",
+            "name": "EUW",
+            "description": "Europe West",
+            "prv": "euw1",
+            "rrv": "europe"
+        },
+        {
+            "id": "3",
+            "name": "EUNE",
+            "description": "Europe Nordic & East",
+            "prv": "eun1",
+            "rrv": "europe"
+        },
+        {
+            "id": "4",
+            "name": "KR",
+            "description": "Korea",
+            "prv": "kr",
+            "rrv": "asia"
+        },
+        {
+            "id": "5",
+            "name": "BR",
+            "description": "Brazil",
+            "prv": "br1",
+            "rrv": "americas"
+        },
+        {
+            "id": "6",
+            "name": "JP",
+            "description": "Japan",
+            "prv": "jp1",
+            "rrv": "asia"
+        },
+        {
+            "id": "7",
+            "name": "RU",
+            "description": "Russia",
+            "prv": "ru",
+            "rrv": "europe"
+        },
+        {
+            "id": "8",
+            "name": "OCE",
+            "description": "Oceania",
+            "prv": "oc1",
+            "rrv": "sea"
+        },
+        {
+            "id": "9",
+            "name": "TR",
+            "description": "Turkey",
+            "prv": "tr1",
+            "rrv": "europe"
+        },
+        {
+            "id": "10",
+            "name": "LAN",
+            "description": "Latin America North",
+            "prv": "la1",
+            "rrv": "americas"
+        },
+        {
+            "id": "11",
+            "name": "LAS",
+            "description": "Latin America South",
+            "prv": "la2",
+            "rrv": "americas"
+        },
+        {
+            "id": "12",
+            "name": "PH",
+            "description": "Philippines",
+            "prv": "ph2",
+            "rrv": "sea"
+        },
+        {
+            "id": "13",
+            "name": "SG",
+            "description": "Singapore",
+            "prv": "sg2",
+            "rrv": "sea"
+        },
+        {
+            "id": "14",
+            "name": "TH",
+            "description": "Thailand",
+            "prv": "th2",
+            "rrv": "sea"
+        },
+        {
+            "id": "15",
+            "name": "TW",
+            "description": "Taiwan",
+            "prv": "tw2",
+            "rrv": "asia"
+        },
+        {
+            "id": "16",
+            "name": "VN",
+            "description": "Vietnam",
+            "prv": "vn2",
+            "rrv": "sea"
+        }
+    ]
+}

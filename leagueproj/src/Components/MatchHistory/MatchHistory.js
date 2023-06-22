@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './MatchHistory.css';
 import Participants from '../Participants/Participants';
 import PlayerStats from '../PlayerStats/PlayerStats';
