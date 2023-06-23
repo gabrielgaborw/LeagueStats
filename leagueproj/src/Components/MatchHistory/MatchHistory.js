@@ -11,7 +11,7 @@ const MatchHistory = ({ matchHistory, playerData, summData, runeData}) => {
         // Mapping through the participants of a specific match
         gameData.info.participants.map((data) => {
         if(data.summonerName === playerData.name) 
-            player = data;
+          player = data;
         })
         return player;
     }

@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-import regions from './regions.json'
+import regions from './regions.json';
 import './App.css';
 import MatchHistory from './Components/MatchHistory/MatchHistory';
 import PlayerProfile from './Components/PlayerProfile/PlayerProfile';
+
+// TODO: circle spin when loading
+// TODO: load my data by default
+// TODO: create navbar component
 
 function App() {
   // Search text for player name
@@ -72,12 +76,21 @@ function App() {
   const changeRegion = (region) => {
     setRegionData(region);
   }
+
+  const keyPress = (event) => {
+    if(event.keyCode === 13) {
+      setPlayer(event.target.value);
+      searchPlayer();
+    }
+  }
   
   return (
     <div className="App">
       <div className="navbar">
-        <img width="50" height="50" src="./Images/logo.svg" alt="" />
-        <h1 className="title">League Stats</h1>
+        <div className="title-container">
+          <img className="logo" width="50" height="50" src="./Images/logo.svg" alt="" />
+          <h1 className="title">LeagueStats</h1>
+        </div>
         <div className="inputs">
           <div className="dropdown">
             <button className="dropdownbtn">
@@ -94,12 +107,12 @@ function App() {
               ))}
             </ul>
           </div>
-          <input className="text-input" type="text" onChange={e => setPlayer(e.target.value)}></input>
+          <input className="text-input" type="text" spellCheck={false} onKeyDown={e => keyPress(e)} onChange={e => setPlayer(e.target.value)}></input>
           <button className="search-btn" onClick={e => searchPlayer(e)}><img width="20" height="20" src="./Images/search.svg" alt="search" /></button>
           {/* onClick={e => searchPlayer(e)} */}
         </div>
       </div>
-      {JSON.stringify(playerData) !== '{}' ? 
+      {JSON.stringify(playerData) !== '{}' && JSON.stringify(playerData) !== undefined ? 
         <div className="container">
           {/* PROFILE DETAILS */}
           <PlayerProfile playerData={playerData} rankedData={rankedData} />
@@ -107,7 +120,10 @@ function App() {
           <MatchHistory matchHistory={matchHistory} playerData={playerData} summData={summData} runeData={runeData} />
         </div>
       : 
-        <><p>No player data</p></>}
+        <div className="no-player">
+          <p>404</p>
+          <p>Player not found. :(</p>
+        </div>}
     </div>
   );
 }
