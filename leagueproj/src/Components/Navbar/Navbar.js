@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import './Navbar.css';
-import regions from '../../regions.json';
 
-// WORK IN PROGRESS
-
-const Navbar = ({ regions }) => {
-	const [data, setData] = useState({ matchHistory: {}, playerData: {}, rankedData: {}, summData: {}, runeData: {}});
+const Navbar = ({ regions, onPlayerData, onMatchHistory, onRankedData, onSummData, onRuneData }) => {
+	const [player, setPlayer] = useState("reddenwhite");
 	const [regionData, setRegionData] = useState(regions.regions[2]);
+
+	useEffect(() => {
+		let ignore = false;
+
+		if(!ignore) searchPlayer();
+		return () => { ignore = true; }
+	}, [])
 
 	function searchPlayer(event) {
     // API call string setup
@@ -16,18 +20,18 @@ const Navbar = ({ regions }) => {
     const APICall_Summs = "http://ddragon.leagueoflegends.com/cdn/13.9.1/data/en_US/summoner.json";
     const APICall_Runes = "http://ddragon.leagueoflegends.com/cdn/13.9.1/data/en_US/runesReforged.json";
 
-    setMatchHistory([]);
+		onMatchHistory([]);
 
     // API call to get summoner spell data
     axios.get(APICall_Summs).then(function (response) {
-      setSummData(response.data.data);
+			onSummData(response.data.data);
     }).catch(function (error) {
       console.log(error);
     })
 
     // API call to get rune data
     axios.get(APICall_Runes).then(function (response) {
-      setRuneData(response.data);
+			onRuneData(response.data);
     }).catch(function (error) {
       console.log(error);
     })
@@ -37,8 +41,7 @@ const Navbar = ({ regions }) => {
     // API call for player data
     axios.get("http://localhost:5000/league/player/", { params: { username: player, region: regionData } })
     .then(function (response) {
-      setPlayerData(response.data.data);
-      console.log(response.data.data);
+			onPlayerData(response.data.data);
     }).catch(function (error) {
       console.log(error);
     })
@@ -46,8 +49,7 @@ const Navbar = ({ regions }) => {
     // API call for match history
     axios.get("http://localhost:5000/league/history/", { params: { username: player, region: regionData } })
       .then(function (response) {
-        setMatchHistory(response.data.data);
-        console.log(matchHistory);
+				onMatchHistory(response.data.data);
       }).catch(function (error) {
         console.log(error);
       })
@@ -55,14 +57,14 @@ const Navbar = ({ regions }) => {
     // API call for ranked data
     axios.get("http://localhost:5000/league/ranked", { params: { username: player, region: regionData } })
       .then(function (response) {
-        setRankedData(response.data.data[0]);
-        console.log(response.data.data[0]);
+				onRankedData(response.data.data[0]);
       }).catch(function (error) {
         console.log(error);
       })
   }
 
 	const changeRegion = (region) => {
+		console.log(region);
     setRegionData(region);
   }
 
