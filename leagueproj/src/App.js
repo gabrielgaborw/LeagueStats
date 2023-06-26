@@ -5,8 +5,7 @@ import './App.css';
 import MatchHistory from './Components/MatchHistory/MatchHistory';
 import PlayerProfile from './Components/PlayerProfile/PlayerProfile';
 import Navbar from './Components/Navbar/Navbar';
-
-// TODO: circle spin when loading
+import LoadingCircle from './Components/LoadingCircle/LoadingCircle';
 
 function App() {
   const [matchHistory, setMatchHistory] = useState([]);
@@ -14,23 +13,21 @@ function App() {
   const [rankedData, setRankedData] = useState([]);
   const [summData, setSummData] = useState([]);
   const [runeData, setRuneData] = useState([]);
+  // TODO: Implement loading
+  const [loading, setLoading] = useState(false);
 
   const handleMatchHistory = (data) => {
     setMatchHistory(data);
   }
-
   const handlePlayerData = (data) => {
     setPlayerData(data);
   }
-
   const handleRankedData = (data) => {
     setRankedData(data);
   }
-
   const handleSummData = (data) => {
     setSummData(data);
   }
-
   const handleRuneData = (data) => {
     setRuneData(data);
   }
@@ -39,7 +36,8 @@ function App() {
     <div className="App">
       <Navbar onPlayerData={handlePlayerData} onMatchHistory={handleMatchHistory}
       onRankedData={handleRankedData} onSummData={handleSummData} onRuneData={handleRuneData} regions={regions} />
-      {JSON.stringify(playerData) !== '{}' && JSON.stringify(playerData) !== undefined ? 
+      {loading ? <LoadingCircle /> : 
+      JSON.stringify(playerData) !== '{}' && JSON.stringify(playerData) !== undefined ? 
         <div className="container">
           {/* PROFILE DETAILS */}
           <PlayerProfile playerData={playerData} rankedData={rankedData} />
@@ -50,7 +48,8 @@ function App() {
         <div className="no-player">
           <p>404</p>
           <p>Player not found. :(</p>
-        </div>}
+        </div>
+      }
     </div>
   );
 }

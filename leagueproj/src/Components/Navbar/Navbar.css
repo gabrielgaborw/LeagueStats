@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(36,33,36);
+    height: 50px;
+}
+  
+  .title-container {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    font-family: 'Tilt Prism', cursive;
+  }
+  
+  .title {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    cursor: default;
+    margin: 0;
+  }
+  
+  .inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .text-input {
+    all: unset;
+    width: 300px;
+    height: 30px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0%);
+    border: 1px solid gray;
+    border-right: 0;
+    border-left: 0;
+  }
+  
+  .text-input::selection {
+    background-color: blue;
+    border: 0;
+  }
+  
+  .search-btn {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: rgb(30,144,255);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 31px;
+		width: 40px;
+    border: 0;
+  }
+  
+  .search-btn:hover { background-color: rgba(30,144,255, 80%); }
+  
+  .search-btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(211,211,211, 0.6);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+  }
+  
+  .search-btn:active:after {
+    width: 0px;
+    height: 0px;
+    opacity: 1;
+    transition: 0s;
+  }
+  
+  .dropdownbtn {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(30,144,255);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    height: 31px;
+    width: 60px;
+    padding: 5px;
+    font-weight: 700;
+    border: none;
+  }
+  
+  .dropdown-regions {
+    display: none;
+    position: absolute;
+    background-color: rgba(36,33,36);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 275px;
+    padding: 0;
+    z-index: 1;
+  }
+  
+  .dropdown-regions li{
+    display: flex;
+    color: white;
+    cursor: pointer;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+    font-weight: 700;
+    text-align: left;
+    background-color: rgba(36,33,36);
+  }
+  
+  .dropdown-regions li:hover {
+    background-color: rgba(26,17,16);
+  }
+  
+  .region-nickname {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(30,144,255);
+    width: 45px;
+    margin-right: 5px;
+    border-radius: 3px;
+  }
+  
+  .dropdownbtn:focus + .dropdown-regions,
+  .dropdownbtn:hover + .dropdown-regions {
+    display: block;
+  }

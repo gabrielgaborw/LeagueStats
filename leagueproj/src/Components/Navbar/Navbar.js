@@ -24,7 +24,7 @@ const Navbar = ({ regions, onPlayerData, onMatchHistory, onRankedData, onSummDat
 
     // API call to get summoner spell data
     axios.get(APICall_Summs).then(function (response) {
-			onSummData(response.data.data);
+      onSummData(response.data.data);
     }).catch(function (error) {
       console.log(error);
     })
@@ -87,8 +87,8 @@ const Navbar = ({ regions, onPlayerData, onMatchHistory, onRankedData, onSummDat
               <span>{regionData.name}</span>
             </button>
             <ul className="dropdown-regions">
-              {regions.regions.map((region) => (
-                <li onMouseDown={() => changeRegion(region)}>
+              {regions.regions.map((region, index) => (
+                <li key={index} onMouseDown={() => changeRegion(region)}>
                   <span className="region-nickname">
                     <span>{region.name}</span>
                   </span>
