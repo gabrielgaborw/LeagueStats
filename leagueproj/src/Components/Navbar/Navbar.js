@@ -7,6 +7,7 @@ const Navbar = ({ regions, onPlayerData, onMatchHistory, onRankedData, onSummDat
 	const [player, setPlayer] = useState("reddenwhite");
 	const [regionData, setRegionData] = useState(regions.regions[2]);
 
+  // Loading my profile on app start
 	useEffect(() => {
 		let ignore = false;
 

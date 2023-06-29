@@ -16,6 +16,7 @@ function App() {
   // TODO: Implement loading
   const [loading, setLoading] = useState(false);
 
+  // Handlers to get data from Navbar component
   const handleMatchHistory = (data) => {
     setMatchHistory(data);
   }
@@ -34,6 +35,7 @@ function App() {
   
   return (
     <div className="App">
+      {/* NAVBAR */}
       <Navbar onPlayerData={handlePlayerData} onMatchHistory={handleMatchHistory}
       onRankedData={handleRankedData} onSummData={handleSummData} onRuneData={handleRuneData} regions={regions} />
       {loading ? <LoadingCircle /> : 
