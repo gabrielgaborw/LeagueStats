@@ -8,6 +8,6 @@ A React app that uses Riot Games' API to retrieve and display players' match his
 
 **2.** Go to [Riot Developer Portal](https://developer.riotgames.com) and get a temporary API key.
 
-**3.** Go into the .env file in the `leagueserver` folder and replace `API_KEY` with the key you got from riot.
+**3.** Go into the **`.env`** file in the `leagueserver` folder and replace `API_KEY` with the key you got from riot.
 
 **4.** Run **`npm start`** in `leagueserver` and `leagueproj` folders.
