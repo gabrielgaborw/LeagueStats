@@ -24,7 +24,7 @@ export const getMatchHistory = async (req, res) => {
             .catch(err => err);
         
         const gameData = [];
-        for(let i = 0; i < gameIds.length - 15; i++) {
+        for(let i = 0; i < gameIds.length - 10; i++) {
             const matchID = gameIds[i];
             const matchData = await axios.get(`https://${RRV}.api.riotgames.com/lol/match/v5/matches/${matchID}?api_key=${API_KEY}`)
                 .then(response => response.data)
