@@ -1,2 +1,3 @@
 leagueserver/.env
 leagueserver/node_modules
+leagueserver/package-lock.json
