@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import './Navbar.css';
 
+const URL = "https://leaguestats.onrender.com"
+
 const Navbar = ({ regions, onPlayerData, onMatchHistory, onRankedData, onSummData, onRuneData }) => {
 	const [player, setPlayer] = useState("reddenwhite");
 	const [regionData, setRegionData] = useState(regions.regions[2]);
@@ -40,7 +42,7 @@ const Navbar = ({ regions, onPlayerData, onMatchHistory, onRankedData, onSummDat
     // API calls to backend
 
     // API call for player data
-    axios.get("http://localhost:5000/league/player/", { params: { username: player, region: regionData } })
+    axios.get(`${URL}/league/player/`, { params: { username: player, region: regionData } })
     .then(function (response) {
 			onPlayerData(response.data.data);
     }).catch(function (error) {
@@ -48,7 +50,7 @@ const Navbar = ({ regions, onPlayerData, onMatchHistory, onRankedData, onSummDat
     })
 
     // API call for match history
-    axios.get("http://localhost:5000/league/history/", { params: { username: player, region: regionData } })
+    axios.get(`${URL}/league/history/`, { params: { username: player, region: regionData } })
       .then(function (response) {
 				onMatchHistory(response.data.data);
       }).catch(function (error) {
@@ -56,7 +58,7 @@ const Navbar = ({ regions, onPlayerData, onMatchHistory, onRankedData, onSummDat
       })
 
     // API call for ranked data
-    axios.get("http://localhost:5000/league/ranked", { params: { username: player, region: regionData } })
+    axios.get(`${URL}/league/ranked`, { params: { username: player, region: regionData } })
       .then(function (response) {
 				onRankedData(response.data.data[0]);
       }).catch(function (error) {
