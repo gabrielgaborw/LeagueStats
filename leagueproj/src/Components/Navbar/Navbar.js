@@ -20,10 +20,11 @@ const Navbar = ({ regions, onPlayerData, onMatchHistory, onRankedData, onSummDat
 	function searchPlayer(event) {
     // API call string setup
     // These api calls don't require an api key
-    const APICall_Summs = "http://ddragon.leagueoflegends.com/cdn/13.9.1/data/en_US/summoner.json";
-    const APICall_Runes = "http://ddragon.leagueoflegends.com/cdn/13.9.1/data/en_US/runesReforged.json";
+    const APICall_Summs = "https://ddragon.leagueoflegends.com/cdn/13.13.1/data/en_US/summoner.json";
+    const APICall_Runes = "https://ddragon.leagueoflegends.com/cdn/13.13.1/data/en_US/runesReforged.json";
 
 		onMatchHistory([]);
+		onRankedData([]);
 
     // API call to get summoner spell data
     axios.get(APICall_Summs).then(function (response) {
@@ -67,7 +68,6 @@ const Navbar = ({ regions, onPlayerData, onMatchHistory, onRankedData, onSummDat
   }
 
 	const changeRegion = (region) => {
-		console.log(region);
     setRegionData(region);
   }
 

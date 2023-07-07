@@ -1,5 +1,6 @@
 .match-stats {
   display: flex;
+  width: 330px;
 }
 
 .match-stats > div {

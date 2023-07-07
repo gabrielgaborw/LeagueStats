@@ -66,6 +66,9 @@
   top: 75%;
 }
 
+.UNRANKED {
+  border: 1px solid rgb(17,13,12);
+}
 .IRON {
   border: 1px solid rgb(188,143,143);
 }
