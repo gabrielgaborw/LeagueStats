@@ -1,4 +1,4 @@
 leagueserver/.env
-leagueserver/node_modules
+leagueproj/node_modules
 leagueserver/package-lock.json
 leagueproj/build

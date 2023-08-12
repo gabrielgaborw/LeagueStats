@@ -53,7 +53,7 @@ const MatchStats = ({ selectedPlayer, summData, runeData }) => {
           {/* CHAMPION ICON */}
           <div className="champ-icon-container">
             <img className="champ-icon" width="80" height="80"
-            src={`https://ddragon.leagueoflegends.com/cdn/13.13.1/img/champion/${selectedPlayer.championName}.png`} alt="champ-icon" />
+            src={`https://ddragon.leagueoflegends.com/cdn/13.15.1/img/champion/${selectedPlayer.championName}.png`} alt="champ-icon" />
           </div>
           <div className="build">
             {/* SUMMONER SPELLS */}

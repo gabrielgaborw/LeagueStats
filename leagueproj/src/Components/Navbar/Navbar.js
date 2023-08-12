@@ -5,7 +5,7 @@ import './Navbar.css';
 
 const URL = "https://leaguestats.onrender.com"
 
-const Navbar = ({ regions, onPlayerData, onMatchHistory, onRankedData, onSummData, onRuneData }) => {
+const Navbar = ({ regions, onAPI_CALLS_DATA, onLoading }) => {
 	const [player, setPlayer] = useState("reddenwhite");
 	const [regionData, setRegionData] = useState(regions.regions[2]);
 
@@ -23,48 +23,23 @@ const Navbar = ({ regions, onPlayerData, onMatchHistory, onRankedData, onSummDat
     const APICall_Summs = "https://ddragon.leagueoflegends.com/cdn/13.13.1/data/en_US/summoner.json";
     const APICall_Runes = "https://ddragon.leagueoflegends.com/cdn/13.13.1/data/en_US/runesReforged.json";
 
-		onMatchHistory([]);
-		onRankedData([]);
+    onLoading(true)
 
     // API call to get summoner spell data
-    axios.get(APICall_Summs).then(function (response) {
-      onSummData(response.data.data);
-    }).catch(function (error) {
-      console.log(error);
+    const Summ_Promise = axios.get(APICall_Summs)
+    // // API call to get rune data
+    const Runes_Promise = axios.get(APICall_Runes)
+    // // API calls to backend
+    // // API call for player data
+    const Player_Promise = axios.get(`${URL}/league/player/`, { params: { username: player, region: regionData } })
+    // // API call for match history
+    const History_Promise = axios.get(`${URL}/league/history/`, { params: { username: player, region: regionData } })
+    // // API call for ranked data
+    const Ranked_Promise = axios.get(`${URL}/league/ranked/`, { params: { username: player, region: regionData } })
+
+    Promise.all([Summ_Promise, Runes_Promise, Player_Promise, History_Promise, Ranked_Promise]).then(function(values) {
+      onAPI_CALLS_DATA(values);
     })
-
-    // API call to get rune data
-    axios.get(APICall_Runes).then(function (response) {
-			onRuneData(response.data);
-    }).catch(function (error) {
-      console.log(error);
-    })
-
-    // API calls to backend
-
-    // API call for player data
-    axios.get(`${URL}/league/player/`, { params: { username: player, region: regionData } })
-    .then(function (response) {
-			onPlayerData(response.data.data);
-    }).catch(function (error) {
-      console.log(error);
-    })
-
-    // API call for match history
-    axios.get(`${URL}/league/history/`, { params: { username: player, region: regionData } })
-      .then(function (response) {
-				onMatchHistory(response.data.data);
-      }).catch(function (error) {
-        console.log(error);
-      })
-
-    // API call for ranked data
-    axios.get(`${URL}/league/ranked`, { params: { username: player, region: regionData } })
-      .then(function (response) {
-				onRankedData(response.data.data[0]);
-      }).catch(function (error) {
-        console.log(error);
-      })
   }
 
 	const changeRegion = (region) => {

@@ -13,31 +13,29 @@ function App() {
   const [rankedData, setRankedData] = useState([]);
   const [summData, setSummData] = useState([]);
   const [runeData, setRuneData] = useState([]);
-  // TODO: Implement loading
-  const [loading, setLoading] = useState(false);
 
-  // Handlers to get data from Navbar component
-  const handleMatchHistory = (data) => {
-    setMatchHistory(data);
+  const [loading, setLoading] = useState(true);
+
+  // Handling data from Navbar component
+  const handleData = (data) => {
+    setSummData(data[0].data.data)
+    setRuneData(data[1].data)
+    setPlayerData(data[2].data.data)
+    setMatchHistory(data[3].data.data)
+    console.log(data[3].data.data)
+    setRankedData(data[4].data.data[0])
+
+    setLoading(false)
   }
-  const handlePlayerData = (data) => {
-    setPlayerData(data);
-  }
-  const handleRankedData = (data) => {
-    setRankedData(data);
-  }
-  const handleSummData = (data) => {
-    setSummData(data);
-  }
-  const handleRuneData = (data) => {
-    setRuneData(data);
+
+  const handleLoad = (loading) => {
+    setLoading(loading)
   }
   
   return (
     <div className="App">
       {/* NAVBAR */}
-      <Navbar onPlayerData={handlePlayerData} onMatchHistory={handleMatchHistory}
-      onRankedData={handleRankedData} onSummData={handleSummData} onRuneData={handleRuneData} regions={regions} />
+      <Navbar onAPI_CALLS_DATA={handleData} onLoading={handleLoad} regions={regions} />
       {loading ? <LoadingCircle /> : 
       JSON.stringify(playerData) !== '{}' && JSON.stringify(playerData) !== undefined ? 
         <div className="container">

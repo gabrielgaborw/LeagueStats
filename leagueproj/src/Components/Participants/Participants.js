@@ -22,7 +22,7 @@ const Participants = ({ gameData }) => {
           {gameData.info.participants.slice(0, 5).map((data, participantIndex) => 
             <li key={participantIndex} className="blue-team">
               <div className="icon">
-                <img width="25" height="25" src={`http://ddragon.leagueoflegends.com/cdn/13.13.1/img/champion/${data.championName}.png`} alt="champ-icon" />
+                <img width="25" height="25" src={`http://ddragon.leagueoflegends.com/cdn/13.15.1/img/champion/${data.championName}.png`} alt="champ-icon" />
               </div>
               <div className="name">
                 {isTooLong(data.summonerName)}
@@ -35,7 +35,7 @@ const Participants = ({ gameData }) => {
           {gameData.info.participants.slice(5, 10).map((data, participantIndex) => 
             <li key={participantIndex} className="red-team">
               <div className="icon">
-                <img width="25" height="25" src={`http://ddragon.leagueoflegends.com/cdn/13.13.1/img/champion/${data.championName}.png`} alt="champ-icon" />
+                <img width="25" height="25" src={`http://ddragon.leagueoflegends.com/cdn/13.15.1/img/champion/${data.championName}.png`} alt="champ-icon" />
               </div>
               <div className="name">
                 {isTooLong(data.summonerName)}
