@@ -15,4 +15,4 @@ A React app that uses Riot Games' API to retrieve and display players' match his
 **5.** Run **`npm start`** in `leagueserver` and `leagueproj` folders.
 
 ## Demo
-You can see a working version of the app [here](https://league-stats.netlify.app/) (NOTE: By default it uses my profile in case some peoeple don't have one; Also, it might take up to ~20 seconds to load the backend)
+You can see a working version of the app [here](https://league-stats.netlify.app/) (NOTE: By default it uses my profile in case some people don't have one; Also, it might take up to ~20 seconds to load the backend)
