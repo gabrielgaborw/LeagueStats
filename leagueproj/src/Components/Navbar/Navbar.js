@@ -3,10 +3,10 @@ import axios from 'axios';
 
 import './Navbar.css';
 
-const URL = "https://leaguestats.onrender.com"
+const URL = "https://localhost:5000/"
 
 const Navbar = ({ regions, onAPI_CALLS_DATA, onLoading }) => {
-	const [player, setPlayer] = useState("reddenwhite");
+	const [player, setPlayer] = useState("ReddenWhite");
 	const [regionData, setRegionData] = useState(regions.regions[2]);
 
   // Loading my profile on app start

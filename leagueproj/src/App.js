@@ -22,7 +22,6 @@ function App() {
     setRuneData(data[1].data)
     setPlayerData(data[2].data.data)
     setMatchHistory(data[3].data.data)
-    console.log(data[3].data.data)
     setRankedData(data[4].data.data[0])
 
     setLoading(false)
