@@ -3,10 +3,11 @@ import axios from 'axios';
 
 import './Navbar.css';
 
-const URL = "https://localhost:5000/"
+const URL = "http://localhost:5000/"
 
 const Navbar = ({ regions, onAPI_CALLS_DATA, onLoading }) => {
 	const [player, setPlayer] = useState("ReddenWhite");
+  const [tagline, setTagline] = useState("EUNE");
 	const [regionData, setRegionData] = useState(regions.regions[2]);
 
   // Loading my profile on app start
@@ -17,26 +18,25 @@ const Navbar = ({ regions, onAPI_CALLS_DATA, onLoading }) => {
 		return () => { ignore = true; }
 	}, [])
 
-	function searchPlayer(event) {
-    // API call string setup
-    // These api calls don't require an api key
+	function searchPlayer(event) {   
+    onLoading(true);
+    
     const APICall_Summs = "https://ddragon.leagueoflegends.com/cdn/13.13.1/data/en_US/summoner.json";
     const APICall_Runes = "https://ddragon.leagueoflegends.com/cdn/13.13.1/data/en_US/runesReforged.json";
-
-    onLoading(true)
-
     // API call to get summoner spell data
-    const Summ_Promise = axios.get(APICall_Summs)
+    const Summ_Promise = axios.get(APICall_Summs);
     // // API call to get rune data
-    const Runes_Promise = axios.get(APICall_Runes)
-    // // API calls to backend
-    // // API call for player data
-    const Player_Promise = axios.get(`${URL}/league/player/`, { params: { username: player, region: regionData } })
-    // // API call for match history
-    const History_Promise = axios.get(`${URL}/league/history/`, { params: { username: player, region: regionData } })
-    // // API call for ranked data
-    const Ranked_Promise = axios.get(`${URL}/league/ranked/`, { params: { username: player, region: regionData } })
+    const Runes_Promise = axios.get(APICall_Runes);
+    
+    // API call for player data
+    const Player_Promise = axios.get(`${URL}league/player`, { params: { username: player, tagline: tagline, region: regionData } });
 
+    // API call for match history
+    const History_Promise = axios.get(`${URL}league/history`, { params: { username: player, tagline: tagline, region: regionData } });
+
+    // API call for ranked data
+    const Ranked_Promise = axios.get(`${URL}league/ranked`, { params: { username: player, tagline: tagline, region: regionData } });
+    
     Promise.all([Summ_Promise, Runes_Promise, Player_Promise, History_Promise, Ranked_Promise]).then(function(values) {
       onAPI_CALLS_DATA(values);
     })

@@ -7,19 +7,19 @@ dotenv.config();
 export const getMatchHistory = async (req, res) => {
     const playerName = req.query.username;
     const API_KEY = process.env.API_KEY;
-    const PRV = req.query.region.prv;
+    const tagline = req.query.tagline;
     const RRV = req.query.region.rrv;
 
     try {
         // API call to get puuid
-        const API_PUUID = `https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/EUNE?api_key=${API_KEY}`;
+        const API_PUUID = `https://${RRV}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tagline}?api_key=${API_KEY}`;
         const PUUID = await axios.get(API_PUUID)
         .then(response => {
             return response.data.puuid
         }).catch(err => err);
         
         // API call to get match ids using puuid
-        const API_Match_History = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${PUUID}/ids?api_key=${API_KEY}`;
+        const API_Match_History = `https://${RRV}.api.riotgames.com/lol/match/v5/matches/by-puuid/${PUUID}/ids?api_key=${API_KEY}`;
         const gameIds = await axios.get(API_Match_History)
         .then(response => response.data)
         .catch(err => err);
@@ -28,7 +28,7 @@ export const getMatchHistory = async (req, res) => {
         const gameData = [];
         for(let i = 0; i < gameIds.length - 10; i++) {
             const matchID = gameIds[i];
-            const matchData = await axios.get(`https://europe.api.riotgames.com/lol/match/v5/matches/${matchID}?api_key=${API_KEY}`)
+            const matchData = await axios.get(`https://${RRV}.api.riotgames.com/lol/match/v5/matches/${matchID}?api_key=${API_KEY}`)
                 .then(response => response.data)
                 .catch(err => err);
             gameData.push(matchData);
@@ -45,18 +45,18 @@ export const getRankedData = async (req, res) => {
     const API_KEY = process.env.API_KEY;
     const PRV = req.query.region.prv;
     const RRV = req.query.region.rrv;
+    const tagline = req.query.tagline;
 
     try {
-        const id = await axios.get(`https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/EUNE?api_key=${API_KEY}`)
+        // API call to get puuid
+        const API_PUUID = `https://${RRV}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tagline}?api_key=${API_KEY}`;
+        const PUUID = await axios.get(API_PUUID)
         .then(response => {
-            console.log(response.data);
-            return response.data.id
+            return response.data.puuid;
         }).catch(err => err);
         
-        
-        // API call for ranked data
-        const API_Call_Ranked = `https://europe.api.riotgames.com/lol/league/v4/entries/by-summoner/${id}?api_key=${API_KEY}`;
-
+        // API call for ranked data using puuid
+        const API_Call_Ranked = `https://${PRV}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${PUUID}?api_key=${API_KEY}`;
         const rankedData = await axios.get(API_Call_Ranked)
             .then(response => response.data)
             .catch(err => err);
@@ -70,12 +70,12 @@ export const getRankedData = async (req, res) => {
 export const getPlayerData = async (req, res) => {
     const playerName = req.query.username;
     const API_KEY = process.env.API_KEY;
-    const PRV = req.query.region.prv;
+    const tagline = req.query.tagline;
     const RRV = req.query.region.rrv;
 
     try {
         // Replace 'EUNE' with tagline
-        const API_Call_Player = `https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/EUNE?api_key=${API_KEY}`;
+        const API_Call_Player = `https://${RRV}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tagline}?api_key=${API_KEY}`;
 
         const playerData = await axios.get(API_Call_Player)
             .then(function (response) {
