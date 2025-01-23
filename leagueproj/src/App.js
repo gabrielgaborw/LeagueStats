@@ -18,15 +18,14 @@ function App() {
 
   // Handling data from Navbar component
   const handleData = (data) => {
-    setSummData(data[0].data.data)
     console.log(data);
-    
-    setRuneData(data[1].data)
-    setPlayerData(data[2].data.data)
-    setMatchHistory(data[3].data.data)
-    setRankedData(data[4].data.data[0])
+    setSummData(data[0].data.data);
+    setRuneData(data[1].data);
+    setPlayerData(data[2].data.data);
+    setMatchHistory(data[3].data.data);
+    setRankedData(data[4].data.data[0]);
 
-    setLoading(false)
+    setLoading(false);
   }
 
   const handleLoad = (loading) => {
@@ -43,7 +42,7 @@ function App() {
           {/* PROFILE DETAILS */}
           <PlayerProfile playerData={playerData} rankedData={rankedData} />
           {/* MATCH HISTORY */}
-          {/* <MatchHistory matchHistory={matchHistory} playerData={playerData} summData={summData} runeData={runeData} /> */}
+          <MatchHistory matchHistory={matchHistory} playerData={playerData} summData={summData} runeData={runeData} />
         </div>
       : 
         <div className="no-player">

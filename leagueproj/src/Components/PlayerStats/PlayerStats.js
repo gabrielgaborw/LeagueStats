@@ -4,6 +4,7 @@ import './PlayerStats.css'
 
 const PlayerStats = ({ selectedPlayer, summData, runeData }) => {
 
+  console.log(selectedPlayer);
   // Displays the player's items
   function showItem(player) {
     let items = [];
@@ -14,7 +15,7 @@ const PlayerStats = ({ selectedPlayer, summData, runeData }) => {
       items.push(
       <li className={`${i === 6 ? "last-item" : "item"}`}>
         <img className={`${i === 6 ? "trinket" : "item-img"}`} width="30" height="30" 
-        src={`http://ddragon.leagueoflegends.com/cdn/13.15.1/img/item/${player[currentItem]}.png`} alt="item" />
+        src={`http://ddragon.leagueoflegends.com/cdn/15.2.1/img/item/${player[currentItem]}.png`} alt="item" />
       </li>)
       : items.push(
       <li className="item">

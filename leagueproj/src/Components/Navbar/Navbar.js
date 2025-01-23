@@ -21,8 +21,8 @@ const Navbar = ({ regions, onAPI_CALLS_DATA, onLoading }) => {
 	function searchPlayer(event) {   
     onLoading(true);
     
-    const APICall_Summs = "https://ddragon.leagueoflegends.com/cdn/13.13.1/data/en_US/summoner.json";
-    const APICall_Runes = "https://ddragon.leagueoflegends.com/cdn/13.13.1/data/en_US/runesReforged.json";
+    const APICall_Summs = "https://ddragon.leagueoflegends.com/cdn/15.2.1/data/en_US/summoner.json";
+    const APICall_Runes = "https://ddragon.leagueoflegends.com/cdn/15.2.1/data/en_US/runesReforged.json";
     // API call to get summoner spell data
     const Summ_Promise = axios.get(APICall_Summs);
     // // API call to get rune data
@@ -36,7 +36,7 @@ const Navbar = ({ regions, onAPI_CALLS_DATA, onLoading }) => {
 
     // API call for ranked data
     const Ranked_Promise = axios.get(`${URL}league/ranked`, { params: { username: player, tagline: tagline, region: regionData } });
-    
+
     Promise.all([Summ_Promise, Runes_Promise, Player_Promise, History_Promise, Ranked_Promise]).then(function(values) {
       onAPI_CALLS_DATA(values);
     })
