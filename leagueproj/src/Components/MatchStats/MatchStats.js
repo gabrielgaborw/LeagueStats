@@ -69,13 +69,14 @@ const MatchStats = ({ selectedPlayer, summData, runeData }) => {
             </ul>
             {/* RUNES */}
             <ul className="runes">
+              {console.log(selectedPlayer.perks.styles[0].selections[0].perk)}
               <li>
                 <img width="35" height="35"
-                src={`Keystones/${selectedPlayer.perks.styles[0]}.png`} alt="keystone" />
+                src={`Keystones/${selectedPlayer.perks.styles[0].selections[0].perk}.png`} alt="keystone" />
               </li>
               <li>
                 <img width="35" height="35"
-                src={`Runes/${selectedPlayer.perks.styles[1]}.png`} alt="rune" />
+                src={`Runes/${selectedPlayer.perks.styles[1].style}.png`} alt="rune" />
               </li>
             </ul>
           </div>
