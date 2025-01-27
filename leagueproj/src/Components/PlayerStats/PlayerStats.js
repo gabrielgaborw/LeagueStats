@@ -4,7 +4,6 @@ import './PlayerStats.css'
 
 const PlayerStats = ({ selectedPlayer, summData, runeData }) => {
 
-  console.log(selectedPlayer);
   // Displays the player's items
   function showItem(player) {
     let items = [];
