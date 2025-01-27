@@ -2,22 +2,21 @@ import React from 'react'
 import './PlayerProfile.css'
 
 
-const PlayerProfile = ({ playerData, rankedData }) => {
+const PlayerProfile = ({ playerData, rankedData, tierData }) => {
   return (
     <>{JSON.stringify(rankedData) !== '{}' ?
     <div className="player-profile">
         <div className="profile">
-          {console.log(rankedData)
-          }
-          <div>{playerData.gameName}</div>
-          <img className={`profile-img ${rankedData?.tier ?? 'UNRANKED'}`} width="125" height="125"
+          {console.log(tierData)}
+          <div>{`${playerData.gameName} #${playerData.tagLine}`}</div>
+          <img className={`profile-img ${tierData?.tier ?? 'UNRANKED'}`} width="125" height="125"
           src={`http://ddragon.leagueoflegends.com/cdn/15.2.1/img/profileicon/${rankedData.profileIconId}.png`} alt="profileicon" />
-          <div className={`level ${rankedData?.tier ?? 'UNRANKED'}`}>{playerData.summonerLevel}</div>
+          <div className={`level ${tierData?.tier ?? 'UNRANKED'}`}>{playerData.summonerLevel}</div>
         </div>
         <div className="rank">
           <div>Ranked Solo/Duo</div>
-          <img className="rank-img" width="250" height="350" src={`Images/${rankedData?.tier ?? 'UNRANKED'}.png`} alt="rank"/>
-          <div className="rank-txt">{rankedData?.tier ?? 'N/A'}</div>
+          <img className="rank-img" width="250" height="350" src={`Images/${tierData?.tier ?? 'UNRANKED'}.png`} alt="rank"/>
+          <div className="rank-txt">{tierData?.tier ?? 'UNRANKED'}</div>
         </div>
       </div>
       : <p>No profile info</p>}

@@ -13,6 +13,7 @@ function App() {
   const [rankedData, setRankedData] = useState([]);
   const [summData, setSummData] = useState([]);
   const [runeData, setRuneData] = useState([]);
+  const [tierData, setTierData] = useState();
 
   const [loading, setLoading] = useState(true);
 
@@ -24,6 +25,8 @@ function App() {
     setPlayerData(data[2].data.data);
     setMatchHistory(data[3].data.data);
     setRankedData(data[4].data.data);
+    setTierData(data[4].data.tier);
+    
     setLoading(false);
   }
 
@@ -39,7 +42,7 @@ function App() {
       JSON.stringify(playerData) !== '{}' && JSON.stringify(playerData) !== undefined ? 
         <div className="container">
           {/* PROFILE DETAILS */}
-          <PlayerProfile playerData={playerData} rankedData={rankedData} />
+          <PlayerProfile playerData={playerData} rankedData={rankedData} tierData={tierData} />
           {/* MATCH HISTORY */}
           <MatchHistory matchHistory={matchHistory} playerData={playerData} summData={summData} runeData={runeData} />
         </div>
