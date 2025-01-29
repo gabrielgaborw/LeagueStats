@@ -10,7 +10,7 @@ const PlayerProfile = ({ playerData, rankedData, tierData }) => {
           <div>{`${playerData.gameName} #${playerData.tagLine}`}</div>
           <img className={`profile-img ${tierData?.tier ?? 'UNRANKED'}`} width="125" height="125"
           src={`http://ddragon.leagueoflegends.com/cdn/15.2.1/img/profileicon/${rankedData.profileIconId}.png`} alt="profileicon" />
-          <div className={`level ${tierData?.tier ?? 'UNRANKED'}`}>{playerData.summonerLevel}</div>
+          <div className={`level ${tierData?.tier ?? 'UNRANKED'}`}>{rankedData.summonerLevel}</div>
         </div>
         <div className="rank">
           <div>Ranked Solo/Duo</div>
