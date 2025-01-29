@@ -6,9 +6,9 @@ import './Navbar.css';
 const URL = "http://localhost:5000/"
 
 const Navbar = ({ regions, onAPI_CALLS_DATA, onLoading }) => {
-	const [player, setPlayer] = useState("ReddenWhite");
-  const [tagline, setTagline] = useState("EUNE");
-	const [regionData, setRegionData] = useState(regions.regions[2]);
+	const [player, setPlayer] = useState("forsenxd");
+  const [tagline, setTagline] = useState("EUW");
+	const [regionData, setRegionData] = useState(regions.regions[1]);
 
   // Loading my profile on app start
 	useEffect(() => {
@@ -46,9 +46,14 @@ const Navbar = ({ regions, onAPI_CALLS_DATA, onLoading }) => {
     setRegionData(region);
   }
 
-  const keyPress = (event) => {
+  const handleUser = (event) => {
+    let inputString = event.target.value.replaceAll(" ", '');
+    inputString = inputString.split("#");
+    
+    setPlayer(inputString[0]);
+    setTagline(inputString[1]);
+
     if(event.keyCode === 13) {
-      setPlayer(event.target.value);
       searchPlayer();
     }
   }
@@ -75,7 +80,7 @@ const Navbar = ({ regions, onAPI_CALLS_DATA, onLoading }) => {
               ))}
             </ul>
           </div>
-          <input className="text-input" type="text" spellCheck={false} onKeyDown={e => keyPress(e)} onChange={e => setPlayer(e.target.value)}></input>
+          <input className="text-input" type="text" spellCheck={false} onKeyDown={e => handleUser(e)} onChange={e => handleUser(e)}></input>
           <button className="search-btn" onClick={e => searchPlayer(e)}><img width="20" height="20" src="./Images/search.svg" alt="search" /></button>
         </div>
       </div>

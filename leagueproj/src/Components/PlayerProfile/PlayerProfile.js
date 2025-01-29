@@ -7,7 +7,6 @@ const PlayerProfile = ({ playerData, rankedData, tierData }) => {
     <>{JSON.stringify(rankedData) !== '{}' ?
     <div className="player-profile">
         <div className="profile">
-          {console.log(tierData)}
           <div>{`${playerData.gameName} #${playerData.tagLine}`}</div>
           <img className={`profile-img ${tierData?.tier ?? 'UNRANKED'}`} width="125" height="125"
           src={`http://ddragon.leagueoflegends.com/cdn/15.2.1/img/profileicon/${rankedData.profileIconId}.png`} alt="profileicon" />
