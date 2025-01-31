@@ -22,19 +22,21 @@ export const getMatchHistory = async (req, res) => {
             });
         
         // API call to get match ids using puuid
-        const API_Match_History = `https://${RRV}.api.riotgames.com/lol/match/v5/matches/by-puuid/${PUUID}/ids?api_key=${API_KEY}`;
+        const API_Match_History = `https://${RRV}.api.riotgames.com/lol/match/v5/matches/by-puuid/${PUUID}/ids?queue=420&api_key=${API_KEY}`;
         const gameIds = await axios.get(API_Match_History)
             .then(response => response.data)
             .catch((err) => {
                 console.error("Error fetching match ids:", err.message);
             });
-        
+
         // API call to get data using match ids
         const gameData = [];
         for(let i = 0; i < gameIds.length - 10; i++) {
             const matchID = gameIds[i];
             const matchData = await axios.get(`https://${RRV}.api.riotgames.com/lol/match/v5/matches/${matchID}?api_key=${API_KEY}`)
-                .then(response => response.data)
+                .then(response => {
+                    return response.data;
+                })
                 .catch((err) => {
                     console.error("Error fetching match data:", err.message);
                 });

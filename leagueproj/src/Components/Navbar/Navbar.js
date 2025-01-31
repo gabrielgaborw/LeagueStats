@@ -6,9 +6,9 @@ import './Navbar.css';
 const URL = "http://localhost:5000/"
 
 const Navbar = ({ regions, onAPI_CALLS_DATA, onLoading }) => {
-	const [player, setPlayer] = useState("forsenxd");
-  const [tagline, setTagline] = useState("EUW");
-	const [regionData, setRegionData] = useState(regions.regions[1]);
+	const [player, setPlayer] = useState("ReddenWhite");
+  const [tagline, setTagline] = useState("EUNE");
+	const [regionData, setRegionData] = useState(regions.regions[2]);
 
   // Loading my profile on app start
 	useEffect(() => {
@@ -49,7 +49,7 @@ const Navbar = ({ regions, onAPI_CALLS_DATA, onLoading }) => {
   const handleUser = (event) => {
     let inputString = event.target.value.replaceAll(" ", '');
     inputString = inputString.split("#");
-    
+
     setPlayer(inputString[0]);
     setTagline(inputString[1]);
 
