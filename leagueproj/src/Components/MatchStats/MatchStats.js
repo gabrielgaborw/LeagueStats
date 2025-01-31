@@ -3,49 +3,6 @@ import Score from '../Score/Score';
 import './MatchStats.css'
 
 const MatchStats = ({ selectedPlayer, summData, runeData }) => {
-  
-  // Returns a string with the summoner spell name
-  // function getSpellIcon(summId) {
-  //   let icon = "";
-  //   Object.entries(summData).map(([key, spell]) => {
-  //     if(spell.key.toString() === summId.toString())
-  //     {
-  //       icon = spell.id
-  //     }
-  //   })
-  //   return icon;
-  // }
-
-  // Getting the primary rune's keystone icon
-  // function getPrimaryRune(playerRunes) {
-  //   let primaryRune = playerRunes[0].selections[0].perk;
-  //   let runeCategory = playerRunes[0].style;
-  //   let runePath = "";
-  //   runeData.map((rune) => {
-  //     if(rune.id === runeCategory)
-  //     {
-  //       rune.slots[0].runes.map((keystone) => {
-  //       if(keystone.id === primaryRune)
-  //         runePath = keystone.key;
-  //       })
-  //     }
-  //   })
-  //   return runePath;
-  // }
-
-  // Getting the secondary rune tree icon
-  // function getSecondaryRune(playerRunes) {
-  //   let secondaryRune = playerRunes[1].style;
-  //   let runePath = "";
-  //   runeData.map((rune) => {
-  //     if(rune.id === secondaryRune)
-  //     {
-  //       runePath = rune.key;
-  //     }
-  //   })
-  //   return runePath;
-  // }
-
   return (
     <>
       <div className="match-stats">
