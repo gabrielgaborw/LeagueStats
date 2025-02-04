@@ -3,12 +3,12 @@ import axios from 'axios';
 
 import './Navbar.css';
 
-const URL = "http://localhost:5000/"
+const URL = "http://52.57.42.60:3000/"
 
 const Navbar = ({ regions, onAPI_CALLS_DATA, onLoading }) => {
-	const [player, setPlayer] = useState("ReddenWhite");
-  const [tagline, setTagline] = useState("EUNE");
-	const [regionData, setRegionData] = useState(regions.regions[2]);
+	const [player, setPlayer] = useState("drututt");
+  const [tagline, setTagline] = useState("EUW");
+	const [regionData, setRegionData] = useState(regions.regions[1]);
 
   // Loading my profile on app start
 	useEffect(() => {
