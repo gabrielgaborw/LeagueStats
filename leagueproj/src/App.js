@@ -19,14 +19,13 @@ function App() {
 
   // Handling data from Navbar component
   const handleData = (data) => {
-    console.log(data);
     setSummData(data[0].data.data);
     setRuneData(data[1].data);
     setPlayerData(data[2].data.data);
     setMatchHistory(data[3].data.data);
     setRankedData(data[4].data.data);
     setTierData(data[4].data.tier);
-    
+
     setLoading(false);
   }
 
