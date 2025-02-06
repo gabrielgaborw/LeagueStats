@@ -8,10 +8,6 @@ const Participants = ({ gameData }) => {
     return name.length >= 10 ? `${name.slice(0, 7)}...` : name;
   }
 
-  function findChampionName(data) {
-    console.log(data);
-  }
-
   return (
     <>
       {/* All players in a game are in a single array so we have to map to the middle
@@ -25,7 +21,7 @@ const Participants = ({ gameData }) => {
                 <img width="25" height="25" src={`http://ddragon.leagueoflegends.com/cdn/15.2.1/img/champion/${data.championName}.png`} alt="champ-icon" />
               </div>
               <div className="name">
-                {isTooLong(data.summonerName)}
+                {isTooLong(data.riotIdGameName)}
               </div>
             </li>
           )}
@@ -38,7 +34,7 @@ const Participants = ({ gameData }) => {
                 <img width="25" height="25" src={`http://ddragon.leagueoflegends.com/cdn/15.2.1/img/champion/${data.championName}.png`} alt="champ-icon" />
               </div>
               <div className="name">
-                {isTooLong(data.summonerName)}
+                {isTooLong(data.riotIdGameName)}
               </div>
             </li>
           )}

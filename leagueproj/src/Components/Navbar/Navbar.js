@@ -3,10 +3,10 @@ import axios from 'axios';
 
 import './Navbar.css';
 
-const URL = "http://52.57.42.60:3000/"
+const URL = "https://league-stats.duckdns.org/"
 
 const Navbar = ({ regions, onAPI_CALLS_DATA, onLoading }) => {
-	const [player, setPlayer] = useState("drututt");
+	const [player, setPlayer] = useState("thebausffs");
   const [tagline, setTagline] = useState("EUW");
 	const [regionData, setRegionData] = useState(regions.regions[1]);
 
